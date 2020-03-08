@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { StoreModule, ActionReducerMap } from '@ngrx/store';
 
 import * as fromCounterReducer from './state/counter.reducer';
+import { TranslationModule } from '../translation/translation.module';
 
 export const COUNTER_REDUCER_TOKEN = new InjectionToken<
   ActionReducerMap<fromCounterReducer.State>
@@ -21,6 +22,7 @@ const routes: Routes = [
   declarations: [CounterComponent],
   imports: [
     CommonModule,
+    TranslationModule,
     StoreModule.forFeature(fromCounterReducer.featureKey, COUNTER_REDUCER_TOKEN),
     RouterModule.forChild(routes)
   ],
