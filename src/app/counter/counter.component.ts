@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as fromCounterActions from './state/counter.actions';
@@ -10,7 +10,7 @@ import * as fromCounterSelector from './state/counter.selector';
   templateUrl: './counter.component.html',
   styleUrls: []
 })
-export class CounterComponent {
+export class CounterComponent implements OnInit{
 
   count$: Observable<number>;
 
@@ -28,6 +28,12 @@ export class CounterComponent {
 
   reset() {
     this.store.dispatch(fromCounterActions.reset());
+  }
+
+  ngOnInit(): void {
+    setInterval( () => {
+      this.store.dispatch(fromCounterActions.increment());
+    }, 5000);
   }
 }
 

@@ -1,8 +1,8 @@
 import { NgModule, InjectionToken } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CustomersRoutingModule } from './customers-routing.module';
-import { CustomersComponent } from './customers.component';
+import { FoldersRoutingModule } from './folders-routing.module';
+import { FoldersComponent } from './folders.component';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { StoreModule, ActionReducerMap } from '@ngrx/store';
@@ -15,12 +15,12 @@ export const CUSTOMERS_REDUCER_TOKEN = new InjectionToken<
   ActionReducerMap<fromCustomersReducer.State>
 >('Customers feature reducers');
 @NgModule({
-  declarations: [CustomersComponent],
+  declarations: [FoldersComponent],
   imports: [
     CommonModule,
     MatListModule,
     MatIconModule,
-    CustomersRoutingModule,
+    FoldersRoutingModule,
     TranslationModule,
     StoreModule.forFeature(fromCustomersReducer.featureKey, CUSTOMERS_REDUCER_TOKEN),
   ],
@@ -31,7 +31,7 @@ export const CUSTOMERS_REDUCER_TOKEN = new InjectionToken<
     },
   ]
 })
-export class CustomersModule {
+export class FoldersModule {
   constructor() {
     console.log('instantiated');
   }

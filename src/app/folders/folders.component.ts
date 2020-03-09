@@ -8,14 +8,14 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-customers',
-  templateUrl: './customers.component.html',
+  templateUrl: './folders.component.html',
   styleUrls: []
 })
-export class CustomersComponent implements OnInit {
-  customers$: Observable<any[]>;
+export class FoldersComponent implements OnInit {
+  folders$: Observable<any[]>;
 
   constructor(private store: Store<fromCustomersReducer.State>) {
-    this.customers$ = store.pipe(select(fromCustomersSelector.selectCustomers));
+    this.folders$ = store.pipe(select(fromCustomersSelector.selectCustomers));
   }
 
   ngOnInit() {
