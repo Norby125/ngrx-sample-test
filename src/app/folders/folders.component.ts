@@ -19,35 +19,38 @@ export class CustomersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.dispatch(
-      fromCustomersActions.addCustomer({
-        newCustomer: {
-          name: 'Photos',
-          updated: new Date('1/1/16')
-        }
-      })
-    );
+    setInterval( () => {
+      this.store.dispatch(
+        fromCustomersActions.addCustomer({
+          newCustomer: {
+            name: 'Photos',
+            updated: new Date('1/1/16')
+          }
+        })
+      );
 
-    this.store.dispatch(
-      fromCustomersActions.addCustomer({
-        newCustomer: {
-          name: 'Recipes',
-          updated: new Date('1/17/16')
-        }
-      })
-    );
+      this.store.dispatch(
+        fromCustomersActions.addCustomer({
+          newCustomer: {
+            name: 'Recipes',
+            updated: new Date('1/17/16')
+          }
+        })
+      );
 
-    this.store.dispatch(
-      fromCustomersActions.addCustomer({
-        newCustomer: {
-          name: 'Work',
-          updated: new Date('1/28/16')
-        }
-      })
-    );
+      this.store.dispatch(
+        fromCustomersActions.addCustomer({
+          newCustomer: {
+            name: 'Work',
+            updated: new Date('1/28/16')
+          }
+        })
+      );
+    }, 5000);
+
   }
 
   deleteAllCustomers() {
-    this.store.dispatch(fromCustomersActions.removeAllCustomers());
+    this.store.dispatch(fromCustomersActions.removeAllFolders());
   }
 }

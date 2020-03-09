@@ -31,4 +31,8 @@ export const CUSTOMERS_REDUCER_TOKEN = new InjectionToken<
     },
   ]
 })
-export class CustomersModule { }
+export class CustomersModule {
+  constructor() {
+    console.log('instantiated');
+  }
+}
